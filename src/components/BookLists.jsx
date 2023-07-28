@@ -10,6 +10,7 @@ import fetchBooks from "../redux/books/thunk/fetchBooks";
 
 const BookLists = () => {
   const books = useSelector((state) => state.books);
+  console.log(books);
   const filter = useSelector((state) => state.filter);
   const search = useSelector((state) => state.search);
 
