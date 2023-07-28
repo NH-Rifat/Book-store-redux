@@ -6,14 +6,10 @@ import store from "./redux/store";
 import { useState } from "react";
 
 function App() {
-  const [search, setSearch] = useState("");
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
   return (
     <Provider store={store}>
-      <Navbar search={search} setSearch={search} handleSearch={handleSearch} />
-      <BookLists search={search} setSearch={search} />
+      <Navbar />
+      <BookLists />
     </Provider>
   );
 }

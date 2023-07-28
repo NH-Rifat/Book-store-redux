@@ -8,9 +8,10 @@ import Tabs from "./Tabs";
 import { useEffect, useState } from "react";
 import fetchBooks from "../redux/books/thunk/fetchBooks";
 
-const BookLists = ({ search, setSearch }) => {
+const BookLists = () => {
   const books = useSelector((state) => state.books);
   const filter = useSelector((state) => state.filter);
+  const search = useSelector((state) => state.search);
 
   const disPatch = useDispatch();
   const [isUpdating, setIsUpdating] = useState(false);
@@ -28,7 +29,8 @@ const BookLists = ({ search, setSearch }) => {
   }, [disPatch]);
 
   const SearchFilter = (book) => {
-    return book.name.toLowerCase().includes(search.toLowerCase());
+    const { searchText } = search;
+    return book.name.toLowerCase().includes(searchText.toLowerCase());
   };
 
   return (

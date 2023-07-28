@@ -1,5 +1,14 @@
+import { useDispatch } from "react-redux";
+import { searchFilter } from "../redux/search/action";
+import { useState } from "react";
+
 /* eslint-disable react/prop-types */
-const Navbar = ({ search, handleSearch }) => {
+const Navbar = () => {
+  const dispatch = useDispatch();
+  const [search, setSearch] = useState("");
+
+  dispatch(searchFilter(search));
+
   return (
     <nav className="py-4 2xl:px-6">
       <div className="container flex items-center justify-between">
@@ -31,7 +40,7 @@ const Navbar = ({ search, handleSearch }) => {
               className="search"
               id="lws-searchBook"
               value={search}
-              onChange={handleSearch}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </form>
